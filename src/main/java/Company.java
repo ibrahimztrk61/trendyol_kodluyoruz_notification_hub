@@ -1,5 +1,5 @@
+import exception.Language;
 import notification.NotificationPackage;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -11,6 +11,16 @@ public class Company {
     private String name;
     private HashMap<NotificationPackage, Agreement> agreementMap = new HashMap();
     private List<User> users = new ArrayList<>();
+    private Language language;
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
 
     public Long getId() {
         return id;
@@ -49,9 +59,8 @@ public class Company {
     public void sendNotification(String message, NotificationPackage notificationPackage) {
 
         if (this.users.isEmpty()) {
-            throw new IllegalArgumentException("Notification is not send! Because user group list is empty");
+            throw new IllegalArgumentException(getLanguage().message());
         }
-
         System.out.println("Message is sent: " + message);
 
         this.agreementMap.get(notificationPackage).incrementNotificationCount();

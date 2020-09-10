@@ -17,6 +17,7 @@ public class ExtraPriceWhenExceedPackage extends NotificationPackage implements 
 
     @Override
     public Double calculate(int count) {
-        return getMonthlyPrice() + (count - getLimit() * getExtraPricePerNotification());
+        return getMonthlyPrice() + ((count - getLimit() )* getExtraPricePerNotification());
+
     }
 }

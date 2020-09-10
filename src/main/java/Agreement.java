@@ -1,3 +1,4 @@
+import exception.Language;
 import notification.NotificationPackage;
 
 import java.util.Date;
@@ -8,6 +9,7 @@ public class Agreement {
     private Date startDate;
     private int agreementTimeInMonth;
     private int notificationCount;
+
 
     public Agreement() {
         this.agreementTimeInMonth = 1;
